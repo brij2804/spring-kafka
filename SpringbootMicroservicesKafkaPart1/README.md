@@ -15,6 +15,7 @@ Springboot Kafka Microservices code
 - Spring Cloud LoadBalancer
 - Spring Cloud API Gateway
 - Resilience4j circuit breaker
+- kafkacat
 
 ## Modules
 - microservices-kafka
@@ -58,8 +59,9 @@ Springboot Kafka Microservices code
 |Spring Cloud Bus Refresh                         | http://localhost:8080/actuator/bus-refresh (POST)|
 
 ### commands
-- docker-compose -f common.yml -f kafka_cluster.yml up
-
+- docker-compose -f common.yml -f kafka_cluster.yml up (starting the kafka brokers and schema registry)
+- docker run -it --network=host confluentinc/cp-kafkacat:6.1.1 kafkacat -L -b localhost:19092 (starting kafkacat and listening to local broker, -L stands for list, -b stands for brokers)
+- kafkacat -L -b localhost:19092 (monitoring broker(localhost:19092) using kafkacat)
 
 
 
